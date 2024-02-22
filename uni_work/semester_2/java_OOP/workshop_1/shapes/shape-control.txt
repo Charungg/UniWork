@@ -1,0 +1,27 @@
+/open M:\All Code\shapes\shapes\load-shapes.txt
+
+Circle circle1 = new Circle();
+circle1.makeVisible();
+circle1.moveHorizontal(50);
+
+Circle circle2 = new Circle();
+circle2.makeVisible();
+circle2.changeColor("red");
+
+String color = circle1.getColor();
+if (!color.equals("red")) {  
+   int currentSize = circle1.getSize();
+   circle1.changeSize(currentSize * 2);
+}
+
+color = circle2.getColor();
+
+if (!color.equals("red") || circle2.getSize<30) {
+   int currentSize = circle2.getSize();
+   circle2.changeSize(currentSize * 2);
+}
+ 
+
+
+
+   

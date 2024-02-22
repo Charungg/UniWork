@@ -1,0 +1,12 @@
+this
+file
+contains
+a 
+few 
+words
+just
+one
+word
+on 
+each
+line

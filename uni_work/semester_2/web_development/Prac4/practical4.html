@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Practical 4 </title>
+    <meta charset = "UTF-8">
+    <link rel="stylesheet" type="text/css" href="Styling.css">
+
+    <script>
+        function showTime(){
+            Today = new Date();
+            document.getElementById("currentTime").innerHTML = "Current time is: " + Today.getDate() + "/" + (Today.getMonth() + 1) + "/" + Today.getFullYear();
+        }
+    </script>
+    
+    <script>
+        function processUser(){
+            var userInputUserName = document.getElementById("userName").value;
+            var userInputUserGrade = document.getElementById("userGrade").value;
+
+            if (userInputUserName != ""){
+                var currentTimeEvent;
+                var currentHour = (Today.getHours()+1);
+
+                if (currentHour >= 5 && currentHour < 12){
+                    let currentTimeEvent = "Good morning";
+                }
+
+                else if(currentHour >= 12 && currentHour < 17){
+                    currentTimeEvent = "Good afternoon";
+                }
+
+                else{
+                    currentTimeEvent = "Good evening";
+                }
+
+                
+                document.getElementById("userAttention").innerHTML = currentTimeEvent + ", " + userInputUserName + " you got grade " + userInputUserGrade;
+            }
+            else{
+                document.getElementById("userAttention").innerHTML = "Please enter your details correctly";
+            }
+        }
+    </script>
+</head>
+
+
+
+<body onload="showTime()">
+    <div id="gridContainer">
+        <div id = "headerArea">
+                <h1> JavaScript Forms </h1> 
+        </div>
+   
+        <div id="menuArea">
+            <div class = "menuLinks">
+                <a href="../Prac3/Charung.html"> Home </a> <br>
+                <b> My Current Work </b> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../CSSPractice/TotallyRealCV.html">My Updated CV</a> <br>
+                <b> Random Links </b> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+                <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
+            </div>
+        </div>
+
+        <div id="mainArea">
+            <p id="currentTime"></p>
+            <br>
+
+            <form>
+                <p id="userAttention"> <b> Please enter your details </b> </p>
+                <label for="userName"> Username: </label><br>
+                <input type="text" id="userName" name="poggers"> <br>
+
+                <br>
+
+                <label for="userGrade"> Grade: </label><br>
+                <!-- <input type="radio" id="grade5" value="5">
+                <label for="grade5"> 5 </label><br>
+                <input type="radio" id="grade4" value="4">
+                <label for="grade4"> 4 </label><br>
+                <input type="radio" id="grade3" value="3">
+                <label for="grade3"> 3 </label><br>
+                <input type="radio" id="grade2" value="2">
+                <label for="grade2"> 2 </label><br>
+                <input type="radio" id="grade1" value="1">
+                <label for="grade1"> 1 </label><br> -->
+                <select name="userGrade" id="userGrade">
+                    <option value="5"> 5 </option>
+                    <option value="4"> 4 </option>
+                    <option value="3"> 3 </option>
+                    <option value="2"> 2 </option>
+                    <option value="1"> 1 </option>
+                </select><br>
+
+                <br>
+
+                <input type="button" value="Submit" onclick="processUser()">
+
+
+
+            </form>
+           
+        </div>
+    </div>
+
+</body>
+
+
+</html>

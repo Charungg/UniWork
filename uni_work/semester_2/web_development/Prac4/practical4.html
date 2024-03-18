@@ -10,6 +10,9 @@
         function showTime(){
             Today = new Date();
             document.getElementById("currentTime").innerHTML = "Current time is: " + Today.getDate() + "/" + (Today.getMonth() + 1) + "/" + Today.getFullYear();
+        
+            lastModifiedDate = new Date(document.lastModified);
+            document.getElementById("lastModifiedDate").innerHTML = "Last Modified: " + lastModifiedDate.getHours() + "h " + lastModifiedDate.getMinutes() + "m " + lastModifiedDate.getSeconds() + "s "+ lastModifiedDate.getDate() +  "/" + (lastModifiedDate.getMonth()+1) + "/" + lastModifiedDate.getFullYear();
         }
     </script>
     
@@ -19,11 +22,14 @@
             var userInputUserGrade = document.getElementById("userGrade").value;
 
             if (userInputUserName != ""){
+                var percentageGrade;
+                var gradeMessage;
                 var currentTimeEvent;
-                var currentHour = (Today.getHours()+1);
+                var currentHour = (Today.getHours());
+
 
                 if (currentHour >= 5 && currentHour < 12){
-                    let currentTimeEvent = "Good morning";
+                    currentTimeEvent = "Good morning";
                 }
 
                 else if(currentHour >= 12 && currentHour < 17){
@@ -40,8 +46,37 @@
             else{
                 document.getElementById("userAttention").innerHTML = "Please enter your details correctly";
             }
+
+            switch (userInputUserGrade){
+                case "5":
+                    gradeMessage = "Good job";
+                    break;
+                case "4":
+                    gradeMessage = "Good job";
+                    break;
+                case "3":
+                    gradeMessage = "It's okay";
+                    break;
+                case "2":
+                    gradeMessage = "Work harder";
+                    break;
+                case "1": 
+                    gradeMessage = "Come after class";
+                    break;
+                case "0":
+                    gradeMessage = "Calling your parents";    
+                    break;
+                default:
+                    gradeMessage = "Error";    
+
+            }
+            userInputUserGrade = (userInputUserGrade / 5) * 100;
+            document.getElementById("responseToGrade").innerHTML = userInputUserGrade + "%, " + gradeMessage;
+
         }
+
     </script>
+
 </head>
 
 
@@ -58,6 +93,8 @@
                 <b> My Current Work </b> <br>
                 <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
                 <a href="../CSSPractice/TotallyRealCV.html">My Updated CV</a> <br>
+                <a href="../PrepPrac4/PrepPrac4.html"> Forms Practice</a> <br>
+                <a href="../Prac4/practical4.html"> JavaScript Forms</a> <br>
                 <b> Random Links </b> <br>
                 <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
                 <a href="../Prac1/TotallyRealCV/TotallyRealCV.html">My CV</a> <br>
@@ -87,29 +124,22 @@
                 <br>
 
                 <label for="userGrade"> Grade: </label><br>
-                <!-- <input type="radio" id="grade5" value="5">
-                <label for="grade5"> 5 </label><br>
-                <input type="radio" id="grade4" value="4">
-                <label for="grade4"> 4 </label><br>
-                <input type="radio" id="grade3" value="3">
-                <label for="grade3"> 3 </label><br>
-                <input type="radio" id="grade2" value="2">
-                <label for="grade2"> 2 </label><br>
-                <input type="radio" id="grade1" value="1">
-                <label for="grade1"> 1 </label><br> -->
                 <select name="userGrade" id="userGrade">
                     <option value="5"> 5 </option>
                     <option value="4"> 4 </option>
                     <option value="3"> 3 </option>
                     <option value="2"> 2 </option>
                     <option value="1"> 1 </option>
+                    <option value="0"> 0 </option>
                 </select><br>
 
                 <br>
 
                 <input type="button" value="Submit" onclick="processUser()">
 
-
+                <p id="responseToGrade"> </p>
+                <br>
+                <p id="lastModifiedDate"> </p>
 
             </form>
            

@@ -1,4 +1,0 @@
-/open M:\All Code\shapes\shapes\Canvas.java
-/open M:\All Code\shapes\shapes\Circle.java
-/open M:\All Code\shapes\shapes\Square.java
-/open M:\All Code\shapes\shapes\Triangle.java

@@ -1,6 +1,0 @@
-fire
-bald
-red
-200
-gold
-300

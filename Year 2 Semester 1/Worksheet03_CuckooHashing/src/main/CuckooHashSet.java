@@ -38,8 +38,6 @@ public class CuckooHashSet<K> implements Set<K>{
         for (int i = 0; i<2; i++ ){
             hashValue = hashFunction(i,key);
             if (data[i][hashValue] == key){
-                System.out.println(key + " is dupe");
-                System.out.println("Table " + i + " in index " + hashValue);
                 indexArray = new int[] {i, hashValue};
                 return indexArray;
 
@@ -101,6 +99,7 @@ public class CuckooHashSet<K> implements Set<K>{
         }
 
         size++;
+        printData();
         return true;
 
 

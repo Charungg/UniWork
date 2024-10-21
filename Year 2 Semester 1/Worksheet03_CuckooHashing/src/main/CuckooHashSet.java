@@ -2,10 +2,10 @@ package main;
 
 public class CuckooHashSet<K> implements Set<K>{
 
-    private K[][] data;
+    private final K[][] data;
     private int size;
 
-    private int capacity;
+    private final int capacity;
 
 
 
@@ -78,21 +78,21 @@ public class CuckooHashSet<K> implements Set<K>{
         K tempKey;
         boolean keyPlaced = false;
 
-        while (keyPlaced == false){
-            hashValue = hashFunction(currentTable,key);
+        while (!keyPlaced){
+            hashValue = hashFunction(currentTable,currentKey);
             if (evictions > size){
                 throw new IllegalStateException();
             }
 
             else if (data[currentTable][hashValue] == null){
-                data[currentTable][hashValue] = key;
+                data[currentTable][hashValue] = currentKey;
                 keyPlaced = true;
             }
 
             else if(data[currentTable][hashValue] != null){
                 tempKey = data[currentTable][hashValue];
-                data[currentTable][hashValue] = key;
-                key = tempKey;
+                data[currentTable][hashValue] = currentKey;
+                currentKey = tempKey;
                 currentTable = (currentTable + 1) % 2;
                 evictions++;
             }

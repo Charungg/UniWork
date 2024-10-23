@@ -1,0 +1,8 @@
+/open M:\All Code\shapes\shapes\load-shapes.txt
+Circle circle1 = new Circle()
+circle1.makeVisible()
+
+if (circle1.getSize()!=60){
+	circle1.changeSize(60);
+	System.out.println("circle1 size has been altered to 60")
+}
